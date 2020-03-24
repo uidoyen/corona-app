@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import useStats from '../utils/useStats';
-
+import { FaHeartBroken, FaHeartbeat } from 'react-icons/fa';
+import { GiBleedingHeart } from 'react-icons/gi';
 const StatGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,17 +26,26 @@ export default function Stats({ url }) {
   return (
     <div>
       <div className="grid gap-3 md:grid-cols-3">
-        <div className="bg-white p-4 rounded-md">
-          <h3>Confirmed:</h3>
-          <span>{stats.confirmed.value}</span>
+        <div className="flex items-center bg-white p-4 rounded-md shadow-xs">
+          <GiBleedingHeart size={60} color="orange" />
+          <div className="ml-6">
+            <h3 className="font-bold">Confirmed:</h3>
+            <span>{stats.confirmed.value}</span>
+          </div>
         </div>
-        <div className="bg-white p-4 rounded-md">
-          <h3>Deaths:</h3>
-          <span>{stats.deaths.value}</span>
+        <div className="flex items-center bg-white p-4 rounded-md shadow-xs">
+          <FaHeartBroken size={50} color="red" />
+          <div className="ml-6">
+            <h3 className="font-bold">Deaths:</h3>
+            <span>{stats.deaths.value}</span>
+          </div>
         </div>
-        <div className="bg-white p-4 rounded-md">
-          <h3>Recovered:</h3>
-          <span>{stats.recovered.value}</span>
+        <div className="flex items-center bg-white p-4 rounded-md shadow-xs">
+          <FaHeartbeat size={50} color="green" />
+          <div className="ml-6">
+            <h3 className="font-bold">Recovered:</h3>
+            <span>{stats.recovered.value}</span>
+          </div>
         </div>
       </div>
     </div>

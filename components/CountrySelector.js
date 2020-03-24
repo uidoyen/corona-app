@@ -13,12 +13,15 @@ export default function CountrySelector() {
   console.log(countries);
   return (
     <div className="mb-8">
-      <h2>Currently Showing {selectedCountry}</h2>
+      <h2 className="text-xl mb-2 font-semibold">
+        Currently Showing - <span className="font-bold">{selectedCountry}</span>
+      </h2>
       <select
         onChange={e => {
           setSelectedCountry(e.target.value);
         }}
-        style={{ marginBottom: 20, padding: 20, height: 40, fontSize: 20 }}
+        className="mb-6 p-4 h-10 text-xl"
+        // style={{ marginBottom: 20, padding: 20, height: 40, fontSize: 20 }}
       >
         {Object.entries(countries.countries).map(([country, code]) => {
           console.log(code);
